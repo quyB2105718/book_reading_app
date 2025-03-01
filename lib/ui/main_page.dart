@@ -1,7 +1,8 @@
 // main_page.dart
 import 'package:flutter/material.dart';
-import '../models/book.dart';
-import 'reading_page.dart'; // Import the reading page
+import '/models/book.dart';
+import 'reading_page.dart';
+import 'add_book_page.dart'; // Import the add book page
 
 class BookListScreen extends StatefulWidget {
   @override
@@ -64,20 +65,42 @@ class _BookListScreenState extends State<BookListScreen> {
     );
   }
 
+  void navigateToAddBookPage(BuildContext context) async {
+    // Navigate to the Add Book Page and wait for a result
+    final newBook = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AddBookPage(
+          onAddBook: (book) {
+            // Add the new book to the list
+            setState(() {
+              books.add(book);
+            });
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Book List'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => navigateToAddBookPage(context),
+          ),
+        ],
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(16.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns in the grid
-          crossAxisSpacing: 16.0, // Spacing between columns
-          mainAxisSpacing: 16.0, // Spacing between rows
-          childAspectRatio:
-              0.7, // Adjust the aspect ratio for better card sizing
+          crossAxisCount: 2,
+          crossAxisSpacing: 16.0,
+          mainAxisSpacing: 16.0,
+          childAspectRatio: 0.7,
         ),
         itemCount: books.length,
         itemBuilder: (context, index) {
