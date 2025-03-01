@@ -1,4 +1,4 @@
-#Sat Mar 01 12:34:32 ICT 2025
+#Sat Mar 01 13:51:52 ICT 2025
 base.0=D\:\\GitHub\\book_reading_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\GitHub\\book_reading_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=D\:\\GitHub\\book_reading_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex

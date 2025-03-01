@@ -1,8 +1,8 @@
-// main_page.dart
 import 'package:flutter/material.dart';
 import '/models/book.dart';
 import 'reading_page.dart';
 import 'add_book_page.dart';
+import 'sort_and_search_page.dart'; // Import the sorting and searching page
 
 class BookListScreen extends StatefulWidget {
   @override
@@ -128,12 +128,39 @@ class _BookListScreenState extends State<BookListScreen> {
     );
   }
 
+  void navigateToSortAndSearchPage(BuildContext context) async {
+    // Navigate to the Sorting and Searching Page and wait for the result
+    final sortedAndFilteredBooks = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SortAndSearchPage(
+          books: books,
+          onApplySortAndSearch: (result) {
+            // Return the sorted and filtered books to the main page
+            Navigator.pop(context, result);
+          },
+        ),
+      ),
+    );
+
+    // Update the book list with the sorted and filtered books
+    if (sortedAndFilteredBooks != null) {
+      setState(() {
+        books = sortedAndFilteredBooks;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Book List'),
         actions: [
+          IconButton(
+            icon: Icon(Icons.sort),
+            onPressed: () => navigateToSortAndSearchPage(context),
+          ),
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () => navigateToAddBookPage(context),
