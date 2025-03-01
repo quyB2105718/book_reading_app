@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '/models/book.dart';
 import 'reading_page.dart';
-import 'add_book_page.dart'; // Import the add book page
+import 'add_book_page.dart';
 
 class BookListScreen extends StatefulWidget {
   @override
@@ -82,6 +82,52 @@ class _BookListScreenState extends State<BookListScreen> {
     );
   }
 
+  void deleteBook(int index) {
+    // Store the deleted book temporarily
+    final deletedBook = books[index];
+
+    // Show a confirmation dialog before deleting
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete Book'),
+        content:
+            Text('Are you sure you want to delete "${deletedBook.title}"?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context), // Close the dialog
+            child: Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                books.removeAt(index); // Delete the book
+              });
+              Navigator.pop(context); // Close the dialog
+
+              // Show a SnackBar with an undo option
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('"${deletedBook.title}" deleted'),
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {
+                      setState(() {
+                        books.insert(
+                            index, deletedBook); // Restore the deleted book
+                      });
+                    },
+                  ),
+                ),
+              );
+            },
+            child: Text('Delete', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,53 +157,66 @@ class _BookListScreenState extends State<BookListScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(12.0)),
-                      child: Image.network(
-                        books[index].imageUrl,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(12.0)),
+                          child: Image.network(
+                            books[index].imageUrl,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              books[index].title,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 4.0),
+                            Text(
+                              books[index].author,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            SizedBox(height: 4.0),
+                            Text(
+                              books[index].genre,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    top: 8.0,
+                    right: 8.0,
+                    child: IconButton(
+                      icon: Icon(Icons.delete, color: Colors.red),
+                      onPressed: () => deleteBook(index),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          books[index].title,
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4.0),
-                        Text(
-                          books[index].author,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                        SizedBox(height: 4.0),
-                        Text(
-                          books[index].genre,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
+                  Positioned(
+                    bottom: 8.0,
+                    right: 8.0,
                     child: IconButton(
                       icon: Icon(
                         books[index].isFavourite
