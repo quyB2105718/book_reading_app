@@ -1,16 +1,8 @@
-# book_reading_app
+Student1's Name: Nguyễn Văn Quý
+Student1's ID: B2105718
 
-A new Flutter project.
+Student2's Name: Nguyễn Trương Thiện Hiếu
+Student2's ID: B2111981
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-	Class/Group Number (e.g, CT312HM01): CT312HM04
+-	GitHub link: https://github.com/quyB2105718/book_reading_app.git
