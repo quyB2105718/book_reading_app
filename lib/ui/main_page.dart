@@ -5,6 +5,8 @@ import 'add_book_page.dart';
 import 'sort_and_search_page.dart'; // Import the sorting and searching page
 
 class BookListScreen extends StatefulWidget {
+  const BookListScreen({super.key});
+
   @override
   _BookListScreenState createState() => _BookListScreenState();
 }

@@ -1,0 +1,1 @@
+ E:\\StudyFile\\MobileAppDev\\book_reading_app\\.dart_tool\\flutter_build\\87cc3ce20be709336fae637d2bf83c4d\\native_assets.yaml: 

@@ -5,7 +5,7 @@ import '/models/book.dart';
 class AddBookPage extends StatefulWidget {
   final Function(Book) onAddBook;
 
-  AddBookPage({required this.onAddBook});
+  const AddBookPage({super.key, required this.onAddBook});
 
   @override
   _AddBookPageState createState() => _AddBookPageState();

@@ -18,10 +18,10 @@ com.example.book_reading_app-lifecycle-runtime-2.7.0-16 C:\Users\Admin\.gradle\c
 com.example.book_reading_app-jetified-core-1.0.0-17 C:\Users\Admin\.gradle\caches\transforms-3\c31a4bb5a15a2ee7a96dbe06c89e85f5\transformed\jetified-core-1.0.0\res
 com.example.book_reading_app-jetified-lifecycle-process-2.7.0-18 C:\Users\Admin\.gradle\caches\transforms-3\dbde9cdc77876e4df7bbc93ff1556b43\transformed\jetified-lifecycle-process-2.7.0\res
 com.example.book_reading_app-jetified-startup-runtime-1.1.1-19 C:\Users\Admin\.gradle\caches\transforms-3\fabdcf8916c57220c7a394d04ce23100\transformed\jetified-startup-runtime-1.1.1\res
-com.example.book_reading_app-debug-20 D:\GitHub\book_reading_app\android\app\src\debug\res
-com.example.book_reading_app-main-21 D:\GitHub\book_reading_app\android\app\src\main\res
-com.example.book_reading_app-pngs-22 D:\GitHub\book_reading_app\build\app\generated\res\pngs\debug
-com.example.book_reading_app-resValues-23 D:\GitHub\book_reading_app\build\app\generated\res\resValues\debug
-com.example.book_reading_app-packageDebugResources-24 D:\GitHub\book_reading_app\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.book_reading_app-packageDebugResources-25 D:\GitHub\book_reading_app\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.book_reading_app-merged_res-26 D:\GitHub\book_reading_app\build\app\intermediates\merged_res\debug
+com.example.book_reading_app-debug-20 E:\StudyFile\MobileAppDev\book_reading_app\android\app\src\debug\res
+com.example.book_reading_app-main-21 E:\StudyFile\MobileAppDev\book_reading_app\android\app\src\main\res
+com.example.book_reading_app-pngs-22 E:\StudyFile\MobileAppDev\book_reading_app\build\app\generated\res\pngs\debug
+com.example.book_reading_app-resValues-23 E:\StudyFile\MobileAppDev\book_reading_app\build\app\generated\res\resValues\debug
+com.example.book_reading_app-packageDebugResources-24 E:\StudyFile\MobileAppDev\book_reading_app\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.book_reading_app-packageDebugResources-25 E:\StudyFile\MobileAppDev\book_reading_app\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.book_reading_app-merged_res-26 E:\StudyFile\MobileAppDev\book_reading_app\build\app\intermediates\merged_res\debug

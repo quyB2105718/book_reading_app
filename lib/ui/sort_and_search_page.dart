@@ -5,7 +5,8 @@ class SortAndSearchPage extends StatefulWidget {
   final List<Book> books;
   final Function(List<Book>) onApplySortAndSearch;
 
-  SortAndSearchPage({required this.books, required this.onApplySortAndSearch});
+  const SortAndSearchPage(
+      {super.key, required this.books, required this.onApplySortAndSearch});
 
   @override
   _SortAndSearchPageState createState() => _SortAndSearchPageState();
